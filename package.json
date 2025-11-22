@@ -1,0 +1,16 @@
+{
+  "name": "ai-youtube-summarizer-actor",
+  "version": "0.1.0",
+  "description": "Apify actor that summarizes YouTube videos using OpenRouter + gpt-4o-mini.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node ./src/main.js",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "apify": "^3.1.9",
+    "axios": "^1.7.0",
+    "zod": "^3.23.8",
+    "youtube-transcript": "^1.2.0"
+  }
+}

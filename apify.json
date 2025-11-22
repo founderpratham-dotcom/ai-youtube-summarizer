@@ -1,0 +1,9 @@
+{
+  "name": "ai-youtube-summarizer-actor",
+  "version": "0.1",
+  "buildTag": "latest",
+  "env": {
+    "APIFY_DEFAULT_DATASET_ID": "default"
+  },
+  "main": "src/main.js"
+}

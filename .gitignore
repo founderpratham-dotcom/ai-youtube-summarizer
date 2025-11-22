@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Apify local storage (SDK v3+)
+apify_storage/
+.apify_storage/
+
+# Environment / secrets
+.env
+.env.*
+
+# Local config & test input files
+local-input.json
+
+# Logs
+npm-debug.log*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
