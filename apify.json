@@ -5,5 +5,6 @@
   "env": {
     "APIFY_DEFAULT_DATASET_ID": "default"
   },
+  "input": "./INPUT_SCHEMA.json",
   "main": "src/main.js"
 }

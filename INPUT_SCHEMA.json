@@ -1,0 +1,99 @@
+{
+  "title": "AI YouTube Summarizer input",
+  "description": "Configure which YouTube videos to summarize and how the summaries should be generated.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "YouTube URLs",
+      "type": "array",
+      "description": "List of YouTube video, playlist, or channel URLs to summarize.",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "editor": "strings"
+    },
+    "maxVideos": {
+      "title": "Maximum number of videos",
+      "type": "integer",
+      "description": "Optional hard limit on the total number of videos to process across all URLs.",
+      "minimum": 1
+    },
+    "includeComments": {
+      "title": "Include comments",
+      "type": "boolean",
+      "description": "If enabled, fetch top comments (requires YOUTUBE_API_KEY) and generate a separate comment summary.",
+      "default": true
+    },
+    "maxCommentsPerVideo": {
+      "title": "Max comments per video",
+      "type": "integer",
+      "description": "Maximum number of top comments to include per video when comments are enabled.",
+      "minimum": 1,
+      "default": 50
+    },
+    "summaryLanguage": {
+      "title": "Summary language",
+      "type": "string",
+      "description": "Language code (e.g. 'en', 'es', 'de') for the main summary.",
+      "default": "en"
+    },
+    "translationLanguages": {
+      "title": "Additional translation languages",
+      "type": "array",
+      "description": "Optional list of extra languages to translate the summary into (currently not used for extra calls, but kept for forward compatibility).",
+      "items": {
+        "type": "string"
+      },
+      "editor": "tags"
+    },
+    "includeFullTranscript": {
+      "title": "Store full transcript",
+      "type": "boolean",
+      "description": "If enabled, store the structured transcript of each video as a key-value record instead of only using it for the summary.",
+      "default": false
+    },
+    "modelConfig": {
+      "title": "Model configuration",
+      "type": "object",
+      "description": "Advanced: override default model and sampling parameters for OpenRouter.",
+      "properties": {
+        "model": {
+          "title": "Model",
+          "type": "string",
+          "description": "OpenRouter model identifier to use for summarization (default: openai/gpt-4o-mini).",
+          "default": "openai/gpt-4o-mini"
+        },
+        "temperature": {
+          "title": "Temperature",
+          "type": "number",
+          "description": "Sampling temperature between 0 and 2; higher values make the output more creative.",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "maxTokens": {
+          "title": "Max tokens",
+          "type": "integer",
+          "description": "Optional maximum number of tokens for each summary completion.",
+          "minimum": 1
+        }
+      }
+    },
+    "clientId": {
+      "title": "Client ID",
+      "type": "string",
+      "description": "Optional opaque identifier for the calling system. Stored with each item to help you correlate results.",
+      "default": ""
+    },
+    "requestId": {
+      "title": "Request ID",
+      "type": "string",
+      "description": "Optional request identifier for tracing individual runs.",
+      "default": ""
+    }
+  },
+  "required": [
+    "startUrls"
+  ]
+}
